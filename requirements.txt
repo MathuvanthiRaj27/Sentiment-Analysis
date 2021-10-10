@@ -23,7 +23,7 @@ kiwisolver
 MarkupSafe==2.0.1
 matplotlib
 murmurhash==1.0.5
-nltk==3.6.3
+nltk
 numexpr
 numpy
 olefile
