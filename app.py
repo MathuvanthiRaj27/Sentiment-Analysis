@@ -1,4 +1,3 @@
-from typing import Set, Any
 
 from flask import Flask, render_template, request, make_response, jsonify
 from pandas import ExcelWriter
@@ -19,7 +18,7 @@ from pandas import DataFrame
 from textblob import TextBlob
 from wordcloud import WordCloud
 from io import BytesIO
-
+import openpyxl
 app = Flask(__name__)
 
 us_abbrev = {'AL': 'Alabama',
@@ -119,8 +118,7 @@ add_stop = ["2", "26", "'s", ".", "i", "I", "��", "say", "me", "the", "my", 
             "own", "same", "so", "than", "too", "very", "s", "t", "can", "will", "just", "don", "good", "should", "now"]
 stop_words = set(stopwords.words('english') + list(punctuation) + list(add_stop))
 nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
-df = pd.read_excel("feedback-details-report-rio_f3800e23e4bbf1f0d925a619aed9c0c8-1227318.xlsx",
-                   sheet_name="Feedback Details")
+df = pd.read_excel("feedback-details-report-rio_f3800e23e4bbf1f0d925a619aed9c0c8-1227318.xlsx", sheet_name="Feedback Details", engine='openpyxl')
 df = df[df['Feedback'] != "--"].reset_index(drop=True)
 # replace "n't" with " not"
 df['Feedback'] = df['Feedback'].str.replace("n\'t", " not")
