@@ -24,7 +24,7 @@ kiwisolver
 MarkupSafe==2.0.1
 matplotlib
 murmurhash==1.0.5
-nltk 
+nltk @ https://devcenter.heroku.com/articles/python-nltk
 numexpr
 numpy
 olefile
