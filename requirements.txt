@@ -23,10 +23,7 @@ joblib
 kiwisolver 
 MarkupSafe==2.0.1
 matplotlib 
-mkl-random 
-mkl-service==2.4.0
 murmurhash==1.0.5
-nltk
 numexpr
 numpy 
 olefile 
