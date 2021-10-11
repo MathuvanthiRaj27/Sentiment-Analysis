@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Sentiment Analysis</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="../static/css/font-face.css" rel="stylesheet" media="all">
+    <link href="../static/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="../static/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="../static/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="../static/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="../static/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="../static/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="../static/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="../static/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="../static/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="../static/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="../static/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="../static/css/theme.css" rel="stylesheet" media="all">
+
+</head>
+
+
+<body class="animsition " style="animation-duration: 900ms; opacity: 1;" data-new-gr-c-s-check-loaded="14.1032.0" data-gr-ext-installed="">
+
+    <div class="page-wrapper">
+        <!-- HEADER DESKTOP-->
+        <header class="header-desktop3 d-none d-lg-block">
+            <div class="section__content section__content--p35">
+                <div class="header3-wrap">
+                    <div class="header__logo">
+                        <a href="/front">
+                            <h1 style="color: #afd9ee;">DINE BRAND</h1>
+                        </a>
+                    </div>
+                    <div class="header__navbar">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="/overview">
+                                    <span class="bot-line"></span>Overview</a>
+                            </li>
+                            <li class="has-sub">
+                                <a class="nav-link" href="/file">
+                                    <span class="bot-line"> </span>File Analysis
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/specific">
+                                    <span class="bot-line"></span>Specific View</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+    <section class="au-breadcrumb2">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="au-breadcrumb-content">
+<div class="au-breadcrumb-left">
+        <br> <span class="au-breadcrumb-span font-weight-bold mdi-format-font-size-increase text-dark">You are here:</span>
+                            <ul class="list-unstyled list-inline au-breadcrumb__list">
+                                <li class="list-inline-item active text-dark">
+                                    <a href="/front" class="text-dark font-weight-bold">Home</a>
+                                </li>
+                                <li class="list-inline-item seprate">
+                                    <span class="text-dark font-weight-bold">/</span>
+                                </li>
+                                <li class="list-inline-item text-dark font-weight-bold">Overview</li>
+                             </ul>
+                    </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+    <div class="col-md-12">
+    <h1 class="title-4" style ="color: rgb(126,23,169);">Specific View Of Data !
+    </h1>
+    <hr class="line-seprate">
+    </div>
+        <div class="container">
+            <div class="row">
+                <div class="au-card col-md-4">
+                    <label class="title-5 m-b-25 text-dark"> Give a state name to know statistics</label>
+                    <form action="/state" method="post" class="form-horizontal">
+                    <label for="input-small" class=" form-control-label">State Name</label>
+                     <input type="text" id="input-small" name="input-small" class="input-sm form-control-sm form-control">
+                    <button type="submit" class="btn float-right">
+                    <i class="fa fa-dot-circle-o"></i> Submit
+                    </button>
+                    </form>
+                 </div>
+                &nbsp;&nbsp;&nbsp;
+                <div class="au-card col-md-4">
+                 <label class="title-5 m-b-25 text-dark"> Give a City name to know statistics</label>
+                    <form action="/city" method="post" class="form-horizontal">
+                    <label for="input-small" class=" form-control-label">City Name</label>
+                     <input type="text" id="input-small" name="cityname" class="input-sm form-control-sm form-control">
+                    <button type="submit" class="btn float-right">
+                    <i class="fa fa-dot-circle-o"></i> Submit
+                    </button>
+                    </form>
+            </div>
+            </div>
+        </div>
+
+        {% if total %}
+        <section class="statistic statistic2">
+            <div class="container">
+        <div class="row align-content-center">
+            <div class="col-md-6 col-lg-3">
+            <div class="statistic__item statistic__item--orange">
+            <h5 class="number">Total Number of Feedbacks</h5>
+                </br>
+                <h2 class="number">{{total}}</h2>
+                </br>
+            <span class="desc">{{t_percent}}</span>
+            <div class="icon">
+            <i class="zmdi zmdi-calendar-note"></i>
+            </div>
+            </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+            <div class="statistic__item statistic__item--green">
+            <h5 class="number">Positive Feedback</h5>
+                </br>
+                <h2 class="number">{{p_count}}</h2>
+                </br>
+            <span class="desc">Positive percent is {{p_percent}}%</span>
+            <div class="icon">
+            <i class="zmdi zmdi-money"></i>
+            </div>
+            </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+            <div class="statistic__item statistic__item--blue">
+            <h5 class="number">Neutral Feedback</h5>
+                </br>
+                <h2 class="number">{{ne_count}}</h2>
+                </br>
+            <span class="desc">Neutral percent is {{ne_percent}}%</span>
+            <div class="icon">
+            <i class="zmdi zmdi-account-o"></i>
+            </div>
+            </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+            <div class="statistic__item statistic__item--red">
+            <h5 class="number">Negative Feedback</h5>
+                </br>
+                <h2 class="number">{{n_count}}</h2>
+                </br>
+            <span class="desc">Negative percent is {{n_percent}}%</span>
+            </br>
+            <div class="icon">
+            <i class="zmdi zmdi-account-o"></i>
+            </div>
+    </div>
+    </div>
+</div>
+        </div>
+            {% endif %}
+        </section>
+
+        {% if total %}
+        <section class="statistic-chart">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <h3 class="title-5 m-b-35" style="color: rgb(126,23,169); font-size: 30px;">Statistics</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-lg-6">
+
+                <div class="au-card ">
+                    <h3 class="title-3 m-b-30">Ratings </h3>
+                      <canvas id="bargraph"></canvas>
+
+                    </div>
+
+                    </div>
+            <div class="col-md-8 col-lg-6">
+                                <div class="au-card m-b-30">
+                                    <div class="au-card-inner">
+                                        <h3 class="title-3 m-b-30">Pie Chart</h3>
+                                        <canvas id="pieChart1" height="195" style="display: block; width: 390px; height: 260px;" width="390"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+        </div>
+        </div>
+
+
+    </section>
+        {% endif %}
+        {% if total %}
+        <section class="statistic-chart">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <h3 class="title-5 m-b-35" style="color: rgb(126,23,169); font-size: 30px;">Frequency Of Words</h3>
+            </div>
+        </div>
+        <div class="row">
+        </div>
+        </div>
+
+    </section>
+        {% endif %}
+        {% if total %}
+        <section class="statistic-chart">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-6">
+
+                <div class="au-card1">
+                    <h3 class="title-3 m-b-30">Top 10 Positive Words </h3>
+                      <canvas id="poswords"></canvas>
+
+                    </div>
+
+                    </div>
+            <div class="col-md-8 col-lg-6">
+
+                <div class="au-card1">
+                    <h3 class="title-3 m-b-30">Top 10 Negative Words </h3>
+                      <canvas id="negwords"></canvas>
+
+                    </div>
+
+                    </div>
+        </div>
+        </div>
+
+
+    </section>
+        {% endif %}
+         {% if pos_image %}
+        <section class="statistic-chart">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <h3 class="title-5 m-b-35" style="color: rgb(126,23,169); font-size: 30px;">Word Cloud</h3>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-6">
+            <div class="au-card1 text-center">
+                </br>
+                    <h5 class="title-4 m-b-25 text-dark text-center">Positive Cloud</h5>
+                        {{pos_image|safe}}
+            </div>
+            </div>
+
+           <!-- <div class="col-md-4 col-lg-4">
+
+                    <h5 class="title-5 m-b-25 text-white">Neutral Cloud</h5>
+                       {{neu_image|safe}}
+
+            </div>-->
+            <div class="col-md-6 col-lg-6">
+                 <div class="au-card1 text-center">
+                     </br>
+                    <h5 class="title-4 m-b-25 text-dark text-center">Negative Cloud</h5>
+                        {{neg_image|safe}}
+                 </div>
+                </div>
+            </div>
+
+            </div>
+
+
+
+    </section>
+        {% endif %}
+        </br>
+        {% if neu_city %}
+        <section class="statistic-chart">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <h3 class="title-5 m-b-35" style="color: rgb(126,23,169); font-size: 40px;">Analysis</h3>
+            </div>
+        </div>
+        <div class="row">
+        </div>
+        </div>
+
+    </section>
+        {% endif %}
+        {% if neu_city %}
+        <section class="statistic-chart">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-lg-4">
+
+                <div class="top-campaign statistic__item--green">
+                    <h5 class="title-3 m-b-30 text-dark">Positive Feedback</h5>
+                    <h5 class="title-5 m-b-25 text-dark">Top 5 Cities</h5>
+                        <div class="table-responsive text-white">
+                            <table class="table table-top-campaign--black--bold text-black-50">
+
+                                <tbody>
+                                {% for result in pos_city %}
+                                    <tr class="">
+                                        {% for col,res  in zip(pos_column, result) %}
+                                        <td>{{res}}</td>
+                                        {% endfor %}
+                                     </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+
+                    </div>
+
+            <div class="col-md-4 col-lg-4">
+
+                <div class="top-campaign statistic__item--blue">
+                    <h5 class="title-3 m-b-30 text-dark">Neutral Feedback</h5>
+                    <h5 class="title-5 m-b-25 text-dark">Top 5 Cities</h5>
+                        <div class="table-responsive text-white">
+                            <table class="table table-top-campaign--black--bold text-black-50">
+
+                                <tbody>
+                                {% for result in neu_city %}
+                                    <tr class="">
+                                        {% for col,res  in zip(neu_column, result) %}
+                                        <td>{{res}}</td>
+                                        {% endfor %}
+                                     </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 col-lg-4">
+
+            <div class="top-campaign statistic__item--red">
+                    <h5 class="title-3 m-b-30 text-dark">Negative Feedback</h5>
+                    <h5 class="title-5 m-b-25 text-dark">Top 5 Cities</h5>
+                        <div class="table-responsive text-white">
+                            <table class="table table-top-campaign--black--bold text-black-50">
+
+                                <tbody>
+                                {% for result in neg_city %}
+                                    <tr class="">
+                                        {% for col,res  in zip(neg_column, result) %}
+                                        <td>{{res}}</td>
+                                        {% endfor %}
+                                     </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+    </section>
+        {% endif %}
+
+
+    </div>
+<!-- Jquery JS-->
+    <script src="../static/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="../static/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="../static/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="../static/vendor/slick/slick.min.js">
+    </script>
+    <script src="../static/vendor/wow/wow.min.js"></script>
+    <script src="../static/vendor/animsition/animsition.min.js"></script>
+    <script src="../static/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="../static/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="../static/vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="../static/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="../static/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../static/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="../static/vendor/select2/select2.min.js">
+    </script>
+
+    <!-- Main JS-->
+    <script src="../static/js/main.js"></script>
+    <script src="https://github.com/chartjs/Chart.js/blob/master/docs/scripts/utils.js"></script>
+    <!-- End custom js for this page -->
+
+    <script>
+     const data1 = [{{p_percent}}, {{ne_percent}},{{n_percent}}]
+      const data = {
+    labels: ['Positive', 'Neutral', 'Negative'],
+    datasets: [
+      {
+        data: data1,
+        backgroundColor: [
+          'rgba(10,103,46,0.8)',
+          'rgba(30, 144, 255, 0.8)',
+          'rgba(228, 27, 23, 0.8)',
+        ],
+           borderColor: [
+          'rgba(10,103,46,0.8)',
+          'rgba(30, 144, 255, 0.8)',
+          'rgba(228, 27, 23, 0.8)',
+        ],
+
+      }
+    ]
+  };
+      const config = {
+  type: 'pie',
+  data: data,
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: 'false'
+      }
+    }
+  },
+};
+      let mypieChart = document.getElementById('pieChart1').getContext('2d');
+      new Chart(mypieChart, config);
+const labels2 = ['1', '2', '3', '4', '5'];
+      const data2 = {
+    labels: labels2,
+    datasets: [
+      {
+        label: 'Positive',
+        data: {{star_pos}},
+        backgroundColor: [
+            'rgba(10,103,46,0.8)',
+            'rgba(10,103,46,0.8)',
+            'rgba(10,103,46,0.8)',
+            'rgba(10,103,46,0.8)',
+            'rgba(10,103,46,0.8)',
+        ],
+      },
+      {
+        label: 'Neutral',
+        data: {{star_neu}},
+        backgroundColor: [
+            'rgba(30, 144, 255, 0.8)',
+            'rgba(30, 144, 255, 0.8)',
+            'rgba(30, 144, 255, 0.8)',
+            'rgba(30, 144, 255, 0.8)',
+            'rgba(30, 144, 255, 0.8)',
+        ],
+      },
+      {
+        label: 'Negative',
+        data: {{star_neg}},
+        backgroundColor: [
+            'rgba(228, 27, 23, 0.8)',
+            'rgba(228, 27, 23, 0.8)',
+            'rgba(228, 27, 23, 0.8)',
+            'rgba(228, 27, 23, 0.8)',
+            'rgba(228, 27, 23, 0.8)',
+        ],
+      },
+    ]
+  };
+      const config2 = {
+    type: 'bar',
+    data: data2,
+    options: {
+      plugins: {
+        title: {
+          display: false,
+          text: 'Chart.js Bar Chart - Stacked'
+        },
+      },
+      responsive: true,
+      scales: {
+        x: {
+          stacked: true,
+        },
+        y: {
+          stacked: true
+        }
+      }
+    }
+  };
+      let mypieChart2 = document.getElementById('bargraph').getContext('2d');
+      new Chart(mypieChart2, config2);
+
+      const pos_freq_data ={{pos_freq_count}};
+  const labels_freq = {{words|safe}};
+  const data_freq = {
+  labels: labels_freq,
+  datasets: [
+    {
+      label: 'Most Positive Keywords',
+      data: pos_freq_data,
+      backgroundColor: [
+        'rgb(245,75,151)',
+        'rgb(42,210,210)',
+        'rgb(190,98,88)',
+        'rgb(190,168,23)',
+        'rgb(180,29,29)',
+        'rgb(19,234,152)',
+        'rgb(255,106,0)',
+        'rgb(35,51,51)',
+        'rgba(0,181,233,0.5)',
+      ],
+    },
+  ]
+};
+  const config_freq = {
+  type: 'bar',
+  data: data_freq,
+  options: {
+    plugins: {
+      title: {
+        display: false,
+        text: 'Chart.js Bar Chart - Stacked'
+      },
+    },
+    responsive: true,
+    scales: {
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true
+      }
+    }
+  }
+};
+  let barchart2 = document.getElementById('poswords').getContext('2d');
+  new Chart(barchart2, config_freq);
+
+ const pos_freq_data1 ={{neg_freq_count}};
+  const labels_freq1 = {{words_neg|safe}};
+  const data_freq1 = {
+  labels: labels_freq1,
+  datasets: [
+    {
+      label: 'Most Positive Keywords',
+      data: pos_freq_data1,
+      backgroundColor: [
+        'rgb(245,75,151)',
+        'rgb(42,210,210)',
+        'rgb(190,98,88)',
+        'rgb(190,168,23)',
+        'rgb(180,29,29)',
+        'rgb(19,234,152)',
+        'rgb(255,106,0)',
+        'rgb(35,51,51)',
+        'rgba(0,181,233,0.5)',
+      ],
+    },
+  ]
+};
+  const config_freq1 = {
+  type: 'bar',
+  data: data_freq1,
+  options: {
+    plugins: {
+      title: {
+        display: false,
+        text: 'Chart.js Bar Chart - Stacked'
+      },
+    },
+    responsive: true,
+    scales: {
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true
+      }
+    }
+  }
+};
+  let barchart3 = document.getElementById('negwords').getContext('2d');
+  new Chart(barchart3, config_freq1);
+
+
+  </script>
+
+    </body>
+</html>
