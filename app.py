@@ -326,7 +326,7 @@ def overview():
     neg_freq_chart.add_series({'values': '=Negative Frequent keywords!$B$2:$B$14',
                                'categories': '=Negative Frequent keywords!$A$2:$A$14',
                                'name': "Top Most Positive Impacting Keywords"})
-    neg_freq_chart.set_title({'name': 'Positive Impacting Keywords'})
+    neg_freq_chart.set_title({'name': 'Negative Impacting Keywords'})
     neg_freq_chart.set_x_axis({'name': 'Keywords'})
     neg_freq_chart.set_y_axis({'name': 'Frequency Count'})
     neg_freq_chart.set_legend({'position': 'top'})
